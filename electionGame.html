@@ -1,0 +1,333 @@
+<html>
+	<head>
+		<script src="electionGame.js"></script>
+		<style>
+		body {
+			font-family: "monospace";
+			min-width:680px;
+			min-height:680px;
+		}
+		table {
+			margin:auto;
+			border-spacing:10px;
+		}
+		td {
+			width:50px;
+			height:50px;
+			padding:0px;
+			text-align:center;
+			font-size:10px;
+			font-weight:bolder;
+			border:0px solid black;
+			border-radius:50%;
+		}
+		.title {
+			padding:0px 0px 0px 0px;
+			font-size:10px;
+		}
+		.content {
+			padding:0px 0px 0px 0px;
+			font-size:10px;
+		}
+		.header {
+			text-align:left;
+			vertical-align:top;
+			height:15px;
+		}
+		</style>
+	</head>
+	<body onselectstart="return false" ondragstart="return false">
+		<table>
+			<tr>
+				<td colspan="3" class="header"></td>
+				<td colspan="5" class="header" id="header" style="text-align:center;">US Election Game 2016</td>
+				<td colspan="3" class="header"></td>
+			</tr>
+			<tr>
+				<td colspan="3" class="header"></td>
+				<td colspan="2" class="header" id="totalScore" style="text-align:right">--- : ---</td>
+				<td class="header"></td>
+				<td colspan="2" class="header" id="roundAndCountdown">Round : -<br/> Countdown : - </td>
+				<td colspan="3" class="header"></td>
+			</tr>
+			<tr>
+				<td id="c_0">
+					<div class="title">ak(3)</div>
+					<div class="content"></div>
+				</td>
+				<td colspan="6" rowspan="2" style="vertical-align:top;">
+					<div style="text-align:left; padding-left:20px;">
+						A game is 10 round, Each round is 10 second.<br/>
+						Each party has 10 workers, Delegate workers to election district.<br/>
+						After a round get vote amount of number of workers.<br/>
+						The winner takes all point in (n).<br/>
+						<br/>
+						* click : increase worker<br/>
+						* shift + click : decrease worker<br/>
+					</div>
+				</td>
+				<td>
+					<button id="start" onmousedown="start()">start</button>
+				</td>
+				<td></td>
+				<td></td>
+				<!-- -->
+				<td id="c_1">
+					<div class="title">me(4)</div>
+					<div class="content"></div>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td id="c_2">
+					<div class="title">vt(3)</div>
+					<div class="content"></div>
+				</td>
+				<!-- -->
+				<td id="c_3">
+					<div class="title">nh(4)</div>
+					<div class="content"></div>
+				</td>
+			</tr>
+			<tr>
+				<td id="c_4">
+					<div class="title">wa(12)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_5">
+					<div class="title">id(4)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_6">
+					<div class="title">mt(3)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_7">
+					<div class="title">nd(3)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_8">
+					<div class="title">mn(10)</div>
+					<div class="content"></div>
+				</td>
+				<!-- -->
+				<td id="c_9">
+					<div class="title">il(20)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_10">
+					<div class="title">wi(10)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_11">
+					<div class="title">mi(16)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_12">
+					<div class="title">ny(29)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_13">
+					<div class="title">ma(11)</div>
+					<div class="content"></div>
+				</td>
+				<!-- -->
+				<td id="c_14">
+					<div class="title">ri(4)</div>
+					<div class="content"></div>
+				</td>
+			</tr>
+			<tr>
+				<td id="c_15">
+					<div class="title">or(7)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_16">
+					<div class="title">nv(6)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_17">
+					<div class="title">wy(3)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_18">
+					<div class="title">sd(3)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_19">
+					<div class="title">ia(6)</div>
+					<div class="content"></div>
+				</td>
+				<!-- -->
+				<td id="c_20">
+					<div class="title">in(11)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_21">
+					<div class="title">oh(18)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_22">
+					<div class="title">pa(20)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_23">
+					<div class="title">nj(14)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_24">
+					<div class="title">ct(7)</div>
+					<div class="content"></div>
+				</td>
+				<!-- -->
+				<td></td>
+			</tr>
+			<tr>
+				<td id="c_25">
+					<div class="title">ca(55)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_26">
+					<div class="title">ut(6)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_27">
+					<div class="title">co(9)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_28">
+					<div class="title">ne(5)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_29">
+					<div class="title">mo(10)</div>
+					<div class="content"></div>
+				</td>
+				<!-- -->
+				<td id="c_30">
+					<div class="title">ky(8)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_31">
+					<div class="title">wv(5)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_32">
+					<div class="title">va(13)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_33">
+					<div class="title">md(10)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_34">
+					<div class="title">de(3)</div>
+					<div class="content"></div>
+				</td>
+				<!-- -->
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td id="c_35">
+					<div class="title">az(11)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_36">
+					<div class="title">nm(5)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_37">
+					<div class="title">ks(6)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_38">
+					<div class="title">ar(6)</div>
+					<div class="content"></div>
+				</td>
+				<!-- -->
+				<td id="c_39">
+					<div class="title">tn(11)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_40">
+					<div class="title">nc(15)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_41">
+					<div class="title">sc(9)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_42">
+					<div class="title">dc(3)</div>
+					<div class="content"></div>
+				</td>
+				<td></td>
+				<!-- -->
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td id="c_43">
+					<div class="title">ok(7)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_44">
+					<div class="title">la(8)</div>
+					<div class="content"></div>
+				</td>
+				<!-- -->
+				<td id="c_45">
+					<div class="title">ms(6)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_46">
+					<div class="title">al(9)</div>
+					<div class="content"></div>
+				</td>
+				<td id="c_47">
+					<div class="title">ga(16)</div>
+					<div class="content"></div>
+				</td>
+				<td></td>
+				<td></td>
+				<!-- -->
+				<td></td>
+			</tr>
+			<tr>
+				<td id="c_48">
+					<div class="title">hi(4)</div>
+					<div class="content"></div>
+				</td>
+				<td></td>
+				<td></td>
+				<td id="c_49">
+					<div class="title">tx(38)</div>
+					<div class="content"></div>
+				</td>
+				<td></td>
+				<!-- -->
+				<td></td>
+				<td></td>
+				<td></td>
+				<td id="c_50">
+					<div class="title">fl(29)</div>
+					<div class="content"></div>
+				</td>
+				<td></td>
+				<!-- -->
+				<td></td>
+			</tr>
+			</tr>
+				<td colspan="11">ko0tae123@gmail.com</td>
+			</tr>
+		</table>
+		<script>
+		init();
+		</script>
+	</body>
+</html>
